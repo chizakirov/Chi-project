@@ -9,14 +9,14 @@
     </label><br>
     <button class="btn btn-success" (click)="getStock()">Search</button>
   </form>
-
-  <!-- Graph -->
+ {{ chart['Time Series (1min)'] |json }}
   <div>
-    <svg height="200" width="500">
-      <polyline [attr.points]="newarr" style="fill:none;stroke:black;stroke-width:3" />
-    </svg>
+    <plotly-plot [data]="graph.data" [layout]="graph.layout"></plotly-plot>
+    <form>
+      <input [(ngModel)]="chartInput" type="text" name="chartInput"><br>
+      <button class = "btn btn-warning" (click)= "getChart()">Update Chart</button>
+    </form>
   </div>
-  <button (click)= "updateChart()">Update Chart</button>
 
   <div>
     <h4> Company Name: {{ stock.quote.companyName }}</h4>
@@ -35,7 +35,7 @@
   <div>
     <form>
       <label>Ticker Symbol<span style = "color:red">*</span>:
-        <input type="text" name="symbol" [(ngModel)]="order.symbol" [placeholder]="stock.quote.symbol">
+        <input type="text" name="symbol" [(ngModel)]="order.symbol">
       </label><br>
       <label>Trade Type<span style = "color:red">*</span>:
         <select name = "type" [(ngModel)]="order.type">
@@ -46,7 +46,7 @@
         </select>
         </label><br>
       <label>Price<span style = "color:red">*</span>:
-          <input type="number" name="price" [(ngModel)]="order.price" [placeholder]="stock.quote.latestPrice">
+          <input type="number" name="price" [(ngModel)]="order.price">
       </label><br>
       <label>Quantity<span style = "color:red">*</span>:
         <input type="number" name="quantity" [(ngModel)]="order.quantity">

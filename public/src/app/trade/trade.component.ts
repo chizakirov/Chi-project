@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+
 import { StockService} from '../stock.service';
 import { ActivatedRoute, Params, Router } from '@angular/router'; 
 import { checkAndUpdateDirectiveDynamic } from '@angular/core/src/view/provider';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-trade',
@@ -16,8 +18,10 @@ export class TradeComponent implements OnInit {
         
       }
     };
-  chart: any;
+  chart: any = {'Time Series (1min)': ""};
   textInput: any = '';
+  chartInput: any = '';
+
   order: any = {
     symbol: "",
     type: "",
@@ -27,10 +31,7 @@ export class TradeComponent implements OnInit {
   };
   orderErrors: any = '';
 
-  points:any;
-  stocks:any;
-  newarr:any;
-  x: number;
+  graph: any = {data: [], layout: {}};
 
   constructor(
     private _stockservice: StockService,
@@ -38,29 +39,26 @@ export class TradeComponent implements OnInit {
     private _router: Router
   ) { }
 
+  @ViewChild('chart') el: ElementRef;
+
   ngOnInit() {
-    this.stocks = [{open: "13.1900"}, {open: "101.9000"},{open: "102.5100"}, {open: "105.2600"},{open:"105.0000"}];
-    this.points = [50, 150, 100, 23, 150, 98];
-    //this.x = 40;
-    this.newarr = [];
-    this.buildData();
   }
 
-  buildData() {
-    for (var x = 5; x < 400; x+=10) {
-      this.newarr.push(x);
-      this.newarr.push(Math.floor(Math.random()*70+50));
-    }
-    this.newarr.push(this.newarr[this.newarr.length-2]+10);
-    this.newarr.push(parseInt(this.stocks[0].open));
-  }
-
-  updateChart() {
+  getChart() {
     console.log('UPDATING CHART');
-    this.newarr.push(this.newarr[this.newarr.length-2]+10);
-    var up = Math.floor(Math.random()*70+70);
-    this.newarr.push(up);
-    console.log(this.newarr);
+    let obs = this._stockservice.getChart(this.chartInput);
+    obs.subscribe(data => {
+      console.log('CHART INFO', data);
+      this.chart = data;
+      this.chartInput = '';
+    })
+    this.graph = {
+      data: [
+          { x: [1, 2, 3], y: [2, 6, 3], type: 'scatter', mode: 'lines+points', marker: {color: 'green'} },
+          // { x: [1, 2, 3], y: [2, 5, 3], type: 'line' },
+      ],
+      layout: {width: 400, height: 300, title: 'Intraday Price'}
+    };
   }
 
   getStock(){

@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +13,8 @@ import { TradeComponent } from './trade/trade.component';
 import { OrderComponent } from './order/order.component';
 import { PositionComponent } from './position/position.component';
 import { NewsComponent } from './news/news.component';
+import { PlotlyModule } from 'angular-plotly.js';
+import { PlotlyPlotComponent } from './plotly-plot/plotly-plot.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +22,16 @@ import { NewsComponent } from './news/news.component';
     TradeComponent,
     OrderComponent,
     PositionComponent,
-    NewsComponent
+    NewsComponent,
+    PlotlyPlotComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    PlotlyModule,
+    AppRoutingModule,
+    CommonModule
   ],
   providers: [StockService],
   bootstrap: [AppComponent]

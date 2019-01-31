@@ -9,9 +9,13 @@ export class StockService {
   
   constructor(private _http: HttpClient) { }
 
+  getChart(symbol:string){
+    return this._http.get(`https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=1min&apikey=GJDPYAUM37X04R7H`);
+  }
+
   getQuote(symbol: string){
     return this._http.get(`/api/stock/${symbol}`);
-    // return this._http.get(`https://api.iextrading.com/1.0/stock/${symbol}/batch?types=quote,news,chart&range=1m&last=10`);//this grabs data from API directly and won't need the backend
+    //return this._http.get(`https://api.iextrading.com/1.0/stock/${symbol}/batch?types=quote,news,chart&range=1m&last=10`);//this grabs data from API directly and won't need the backend
   }
 
   getNews(symbol: string){

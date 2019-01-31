@@ -18,9 +18,12 @@
     "url": "https://github.com/chizakirov/Chi-project/issues"
   },
   "dependencies": {
+    "@types/lodash": "^4.14.120",
+    "angular-plotly.js": "^1.0.1",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "mongoose": "^5.4.4",
+    "plotly.js": "^1.44.1",
     "request": "^2.88.0"
   },
   "homepage": "https://github.com/chizakirov/Chi-project#readme"
