@@ -1,0 +1,9 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<h3>Here is your order summary</h3>
+<p>Trade type: {{ order.type }}</p>
+<p>Quantity: {{ order.quantity }} shares of {{ order.symbol }} </p>
+<p>Amount: ${{ order.total }}</p>
+

@@ -1,0 +1,17 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<h5>Portfolio Overview:</h5>
+<p>Initial Cash balance: $25,000</p>
+<p>Gain/Loss: ${{ stockTotal }}</p>
+<p>Current Cash Available to Trade or Withdraw: ${{ remainingCash }} </p>
+<p>Return: {{ return }}%</p>
+
+
+<div *ngFor = "let x of positions">
+  <hr>
+  <p>Ticker Symbol: {{ x.symbol }}</p>
+  <p>Quantity: {{ x.quantity }} shares</p>
+  <p>Current Total: ${{ x.total }}</p>
+</div>

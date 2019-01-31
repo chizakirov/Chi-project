@@ -1,0 +1,27 @@
+{
+  "name": "Chi-project",
+  "version": "1.0.0",
+  "description": "This repo is mainly for practicing Git commands for better team collaboration. Good resource: https://kbroman.org/github_tutorial/pages/fork.html Here are some notes for the project 1. Goals:    - To create a mini stock simulator app that can execute a swing trade with limit order and using real time data using MEAN technologies   - Incorporate Socket and APIs for real time stock quotes and charts   - Learn new and useful technologies such as D3, LESS, SASS, Angular Boostrap",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chizakirov/Chi-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chizakirov/Chi-project/issues"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.4",
+    "request": "^2.88.0"
+  },
+  "homepage": "https://github.com/chizakirov/Chi-project#readme"
+}

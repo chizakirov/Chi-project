@@ -7,8 +7,10 @@ Here are some notes for the project
 
 2. Scope and Timeline:
   - For one week's time, we may be able to include only two features: stock simulator and chart generating
-  1. Monday: API & Search Feature (Leo)
-  2. Tuesday: Real-time chart feature & a basic functional trade (Chi)
+  1. Monday: API, real-time quote. Search Feature (Leo/Chi)
+    * Chi: get stock data from API & search by stock symbol: done
+    * Leo: 
+  2. Tuesday: Real-time chart feature (Leo) & a basic functional trade (Chi)
   3. Wednesday: Include Limit Order feature to the trade (Chi)
   4. Thursday: Styling (Leo & Chi) & incorporate Login with Google (Fred)
 

@@ -1,0 +1,64 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<div style="text-align:center">
+  <form>
+    <label>Search stock quote by symbol <br>
+      <input [(ngModel)]="textInput" type="text" name="textInput">
+    </label><br>
+    <button class="btn btn-success" (click)="getStock()">Search</button>
+  </form>
+
+  <!-- Graph -->
+  <div>
+    <svg height="200" width="500">
+      <polyline [attr.points]="newarr" style="fill:none;stroke:black;stroke-width:3" />
+    </svg>
+  </div>
+  <button (click)= "updateChart()">Update Chart</button>
+
+  <div>
+    <h4> Company Name: {{ stock.quote.companyName }}</h4>
+    <h4> Stock Symbol: {{ stock.quote.symbol }}</h4>
+    <h4> LatestPrice: {{ stock.quote.latestPrice }}</h4>
+    <!-- <h4> Real-time Price: {{ stock.quote.iexRealtimePrice }}</h4> -->
+
+  <div *ngIf = "orderErrors">
+    <p *ngIf = "orderErrors.errors.symbol" style="color:red">{{ orderErrors.errors.symbol.message }}</p>
+    <p *ngIf = "orderErrors.errors.type" style="color:red">{{ orderErrors.errors.type.message }}</p>
+    <p *ngIf = "orderErrors.errors.price" style="color:red">{{ orderErrors.errors.price.message }}</p>
+    <p *ngIf = "orderErrors.errors.quantity" style="color:red">{{ orderErrors.errors.quantity.message }}</p>
+  </div>
+<!-- {{order|json}} -->
+  </div>
+  <div>
+    <form>
+      <label>Ticker Symbol<span style = "color:red">*</span>:
+        <input type="text" name="symbol" [(ngModel)]="order.symbol" [placeholder]="stock.quote.symbol">
+      </label><br>
+      <label>Trade Type<span style = "color:red">*</span>:
+        <select name = "type" [(ngModel)]="order.type">
+          <option value="buy">Buy</option>
+          <option value="buy cover">Buy Cover</option>
+          <option value="sell">Sell</option>
+          <option value="sell short">Sell Short</option>
+        </select>
+        </label><br>
+      <label>Price<span style = "color:red">*</span>:
+          <input type="number" name="price" [(ngModel)]="order.price" [placeholder]="stock.quote.latestPrice">
+      </label><br>
+      <label>Quantity<span style = "color:red">*</span>:
+        <input type="number" name="quantity" [(ngModel)]="order.quantity">
+      </label><br>
+      <label>Total:
+        <input type="number" name="total" [(ngModel)]="order.quantity*order.price">
+      </label><br>
+
+      <button class = "btn btn-primary" (click) = "placeOrder()">Place Order</button>
+
+    </form>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
