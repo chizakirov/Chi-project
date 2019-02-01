@@ -14,7 +14,7 @@ import { OrderComponent } from './order/order.component';
 import { PositionComponent } from './position/position.component';
 import { NewsComponent } from './news/news.component';
 import { PlotlyModule } from 'angular-plotly.js';
-import { PlotlyPlotComponent } from './plotly-plot/plotly-plot.component';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ import { PlotlyPlotComponent } from './plotly-plot/plotly-plot.component';
     OrderComponent,
     PositionComponent,
     NewsComponent,
-    PlotlyPlotComponent
+  
   ],
   imports: [
     BrowserModule,

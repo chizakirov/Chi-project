@@ -3,7 +3,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { StockService} from '../stock.service';
 import { ActivatedRoute, Params, Router } from '@angular/router'; 
 import { checkAndUpdateDirectiveDynamic } from '@angular/core/src/view/provider';
-import * as _ from 'lodash';
+// import * as _ from 'lodash';
 
 @Component({
   selector: 'app-trade',
@@ -31,7 +31,7 @@ export class TradeComponent implements OnInit {
   };
   orderErrors: any = '';
 
-  graph: any = {data: [], layout: {}};
+  graph: any = { data: { x: [], y: [] }, layout: {} };
 
   constructor(
     private _stockservice: StockService,
@@ -39,26 +39,37 @@ export class TradeComponent implements OnInit {
     private _router: Router
   ) { }
 
-  @ViewChild('chart') el: ElementRef;
 
   ngOnInit() {
+    this.getChart();
   }
 
   getChart() {
-    console.log('UPDATING CHART');
     let obs = this._stockservice.getChart(this.chartInput);
     obs.subscribe(data => {
-      console.log('CHART INFO', data);
       this.chart = data;
       this.chartInput = '';
+      // console.log('TIME SERIES', this.chart['Time Series (1min)']);
+      for (let i of this.graph.data){
+        for (let x in this.chart['Time Series (1min)']){
+          let y_axis = parseInt(this.chart['Time Series (1min)'][x]['1. open']);
+          let x_axis = new Date(x);
+          this.graph.data[0].y.push(y_axis);
+          this.graph.data[0].x.push(x_axis);
+
+        };
+      }
+      
     })
     this.graph = {
       data: [
-          { x: [1, 2, 3], y: [2, 6, 3], type: 'scatter', mode: 'lines+points', marker: {color: 'green'} },
+          { x: [this.graph.data.x], y: [this.graph.data.y], type: 'scatter', mode: 'lines+points', marker: {color: 'green'} },
           // { x: [1, 2, 3], y: [2, 5, 3], type: 'line' },
       ],
-      layout: {width: 400, height: 300, title: 'Intraday Price'}
+      
+      layout: {width: 600, height: 350, title: 'Intraday Price Chart'}
     };
+    console.log('GOT GRAPH', this.graph);
   }
 
   getStock(){

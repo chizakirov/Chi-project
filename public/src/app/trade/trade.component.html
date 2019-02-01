@@ -9,9 +9,10 @@
     </label><br>
     <button class="btn btn-success" (click)="getStock()">Search</button>
   </form>
- {{ chart['Time Series (1min)'] |json }}
+
   <div>
     <plotly-plot [data]="graph.data" [layout]="graph.layout"></plotly-plot>
+    
     <form>
       <input [(ngModel)]="chartInput" type="text" name="chartInput"><br>
       <button class = "btn btn-warning" (click)= "getChart()">Update Chart</button>
@@ -52,7 +53,7 @@
         <input type="number" name="quantity" [(ngModel)]="order.quantity">
       </label><br>
       <label>Total:
-        <input type="number" name="total" [(ngModel)]="order.quantity*order.price">
+        <input type="number" name="total" [(ngModel)]="order.quantity*order.price" readonly>
       </label><br>
 
       <button class = "btn btn-primary" (click) = "placeOrder()">Place Order</button>

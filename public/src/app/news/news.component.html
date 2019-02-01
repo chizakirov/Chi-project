@@ -20,6 +20,8 @@
   <p>YTD Return: {{ stock.quote.ytdChange*100 }}%</p>
   <p>Price/Earning Ratio: {{stock.quote.peRatio }}</p>
 
+  <plotly-plot [data]="graph.data" [layout]="graph.layout"></plotly-plot>
+
   <h4>Related News</h4>
   <div *ngFor = "let x of stock.news">
     <h5>{{ x.datetime }} - {{ x.headline }}</h5>
