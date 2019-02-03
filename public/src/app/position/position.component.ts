@@ -38,6 +38,7 @@ export class PositionComponent implements OnInit {
         this.remainingCash = this.stockTotal;
         let initial: number = 25000;
         this.remainingCash = this.stockTotal + initial;
+        this.remainingCash = Math.round(this.remainingCash * 100) / 100;
         console.log('CASH AVAILBLE', this.remainingCash);
         this.return = 100 * (this.remainingCash -this.initial)/this.initial;
         this.return = Math.round(this.return * 100) / 100;

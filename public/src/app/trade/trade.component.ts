@@ -75,7 +75,7 @@ export class TradeComponent implements OnInit {
   getStock(){
     let obs = this._stockservice.getQuote(this.textInput);
     obs.subscribe((data: string) => {
-      // console.log('the whole API  object', data);
+      console.log('the whole API  object', data);
       this.stock = JSON.parse(data);
       this.textInput = "";
     })

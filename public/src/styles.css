@@ -1,1 +1,175 @@
 /* You can add global styles to this file, and also import other style files */
+/* body {
+  background-color: gray;
+  color: white;
+} */
+
+.header{
+  background: linear-gradient(to top, gray, darkgray, gray);
+  padding-top: 0;
+  height: 140px;
+}
+
+.title h1{
+  font-size: 45px;
+  color: lightgreen;
+}
+
+.order {
+  width:50%;
+  margin: 0 auto;
+  padding: 5px;
+}
+
+.header h4, h3 {
+  color: rgb(34, 218, 28);
+}
+
+.links a {
+  color:blue;
+  font-size: 1.8em;
+  font-weight: bold;
+  padding: 12px;
+}
+
+.news { 
+  background-image: url("./assets/news.jpg"); 
+  text-align: center;
+  color: white;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 800px;
+  font-size: 1.4em;
+}
+
+.subnews {
+  padding-top: 30px;
+  width: 600px;
+  background-color: rgba(50, 50, 180, .5);
+  min-height: 800px;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.news-chart, .innews{
+  padding-top: 50px;
+  display: inline-block;
+  vertical-align: bottom;
+  width: 300px;
+  min-height: 550px;
+  width:50%;
+  margin: 0 auto;
+
+}
+
+.news-chart{
+  padding-top: 50px;
+  margin-bottom: -20px;
+}
+
+.trade {
+  background-image: url("./assets/fearless.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: white;
+}
+
+.trade form input {
+  background-color:darkgray;
+  color: black;
+}
+
+.trade form select {
+  background-color:darkgray;
+}
+
+.order_summary{
+  background-image: url("./assets/fearless.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: white;
+  min-height: 800px;
+  font-size: 25px;
+
+}
+
+.position {
+  background-image: url("./assets/bull.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 800px;
+  color: white;
+  font-size: 1.2em;
+}
+
+.position_table {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.position_table th {
+  background-image: linear-gradient(to top, rgba(0,0,0,.6), rgba(0,0,0,.8));
+  background-blend-mode: darken;
+}
+.position_table td {
+  background-image: linear-gradient(to top, rgba(34, 218, 28, .5), rgba(31, 204, 54, .7));
+}
+
+.position_table, .position tr, .position td, .position th {
+  text-align: center;
+  border: 2px solid green;
+  padding: 10px;
+}
+
+.update_chart {
+  color: black;
+}
+
+.chart, .stats {
+  padding-top: 50px;
+  display: inline-block;
+  vertical-align: bottom;
+  width: 50%;
+  min-height: 550px;
+  margin: 0 auto;
+}
+
+.chart{
+  /* background-color: green; */
+  padding-left: 30px;
+}
+.stats{
+  /* background-color: pink; */
+  padding-right: 50px;
+}
+
+input{
+  width: 200px;
+  padding: 6px 10px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 5px solid gray;
+  background-color:darkgray;
+}
+
+.trade_form, .empty{
+  vertical-align: top;
+  display: inline-block;
+  padding-right: 200px;
+  margin-top: -40px;
+}
+
+.account{
+  background-color:rgba(0,0,0,.6);
+  width: 60%;
+  margin-left: 290px;
+  padding-top: 5px;
+}
+
+
+
+

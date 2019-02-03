@@ -1,15 +1,17 @@
 <head>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 
-
-<div style="text-align:center">
+<div class="header" style="text-align:center">
+  <div class="title">
   <h1>{{ title }}</h1>
-  <h4><i>Compete with thousands of traders and trade your way to the top!</i></h4>
-  <hr>
-  <a [routerLink] = "['/position']">Account Summary</a>
-  | <a [routerLink] = "['/trade']">Trade</a>
-  | <a [routerLink] = "['/news']">News and Research</a>
-
-
-  <router-outlet></router-outlet>
+  <h4 style = "color: lightgreen"><i>Compete with thousands of traders and trade your way to the top!</i></h4>
+  </div>
+  <div class="links">
+    <a [routerLink] = "['/position']">Account Summary</a>
+   <a [routerLink] = "['/trade']">Trade</a>
+   <a [routerLink] = "['/news']">News and Research</a>
+  </div>
+</div>
+  
+    <router-outlet></router-outlet>

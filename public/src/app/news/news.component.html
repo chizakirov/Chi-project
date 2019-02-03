@@ -2,31 +2,36 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 
-<div style="text-align:center">
+<div class="news" style = "text-align: center">
+  <div class="subnews">
+    <form>
+      <label>Research stock by ticker symbol <br><br>
+        <input [(ngModel)]="textInput" type="text" name="textInput">
+      </label><br>
+      <button class="btn btn-success" (click)="getNews()">Search</button>
+    </form>
+    <div class = "innews">
+      <br>
+      <h3><i>{{ stock.quote.companyName }} Stats</i></h3>
+      <br><br>
+      <p>Sector: {{ stock.quote.sector }}</p>
+      <p>Day range: {{ stock.quote.open}} - {{ stock.quote.close }}</p>
+      <p>Day Change: {{ stock.quote.changePercent*100 }}%</p>
+      <p>52-week Range: {{ stock.quote.week52Low}} - {{ stock.quote.week52High }}</p>
+      <p>Market Cap: {{ stock.quote.marketCap/1000000 }}M</p>
+      <p>YTD Return: {{ stock.quote.ytdChange*100 }}%</p>
+      <p>Price/Earning Ratio: {{stock.quote.peRatio }}</p>
+    </div>
 
-  <form>
-    <label>Get news by entering stock symbol <br>
-      <input [(ngModel)]="textInput" type="text" name="textInput">
-    </label><br>
-    <button class="btn btn-success" (click)="getNews()">Search</button>
-  </form>
+    <div class="news-chart">
 
-  <h4>{{ stock.quote.companyName }} Stats</h4>
-  <p>Sector: {{ stock.quote.sector }}</p>
-  <p>Day range: {{ stock.quote.open}} - {{ stock.quote.close }}</p>
-  <p>Day Change: {{ stock.quote.changePercent*100 }}%</p>
-  <p>52-week Range: {{ stock.quote.week52Low}} - {{ stock.quote.week52High }}</p>
-  <p>Market Cap: {{ stock.quote.marketCap/1000000 }}M</p>
-  <p>YTD Return: {{ stock.quote.ytdChange*100 }}%</p>
-  <p>Price/Earning Ratio: {{stock.quote.peRatio }}</p>
+      <plotly-plot [data]="graph.data" [layout]="graph.layout"></plotly-plot>
+    </div>
 
-  <plotly-plot [data]="graph.data" [layout]="graph.layout"></plotly-plot>
-
-  <h4>Related News</h4>
-  <div *ngFor = "let x of stock.news">
-    <h5>{{ x.datetime }} - {{ x.headline }}</h5>
-    <p>{{ x.url }} ...<a href="{{ x.url }}">Read article</a></p>
-  </div> 
-
-  <!-- {{stock.quote|json}} -->
+      <h3>Related News</h3>
+      <div *ngFor = "let x of stock.news">
+        <h4>{{ x.datetime }} - {{ x.headline }}</h4>
+        <p style="font-size: 15px;"><a href="{{ x.url }}"><span style="font-size: 15px; color: greenyellow;"><i>Read article</i></span></a></p>
+      </div> 
+  </div>
 </div>

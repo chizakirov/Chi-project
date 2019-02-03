@@ -2,16 +2,31 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 
-<h5>Portfolio Overview:</h5>
-<p>Initial Cash balance: $25,000</p>
-<p>Gain/Loss: ${{ stockTotal }}</p>
-<p>Current Cash Available to Trade or Withdraw: ${{ remainingCash }} </p>
-<p>Return: {{ return }}%</p>
+<div class="header">
+  <div class="position" style = "text-align: center; font-size: 23px;">
+    <br>
+    <div class = "account">
+      <h3 style = "font-size: 30px">Account Overview</h3>
+      <br>
+      <p>Initial Cash balance: $25,000</p>
+      <p>Gain/Loss: ${{ stockTotal }}</p>
+      <p>Current Cash Available to Trade or Withdraw: ${{ remainingCash }} </p>
+      <p>Return: {{ return }}%</p>
+      <br>
+    </div>
 
-
-<div *ngFor = "let x of positions">
-  <hr>
-  <p>Ticker Symbol: {{ x.symbol }}</p>
-  <p>Quantity: {{ x.quantity }} shares</p>
-  <p>Current Total: ${{ x.total }}</p>
+    <h3 style = "font-size: 30px">Portfolio Summary</h3>
+    <table class="position_table">
+      <tr>
+        <th>Symbol</th>
+        <th>Quantity</th>
+        <th>Total</th>
+      </tr>
+      <tr *ngFor = "let x of positions">
+        <td>{{ x.symbol }}</td>
+        <td>{{ x.quantity }} shares</td>
+        <td>{{ x.total }}</td>
+          </tr>
+    </table>
+  </div>
 </div>
