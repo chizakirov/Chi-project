@@ -19,26 +19,26 @@ module.exports = {
           .then(data => {
             if(data != null && order.type == 'buy' || order.type == 'buy cover'){
               let order_total = order.total;
-              console.log('BUY ORDER TOTAL', order_total);
+              // console.log('BUY ORDER TOTAL', order_total);
               let order_quantity = order.quantity;
-              console.log('BUY ORDER QUANTITY', order_quantity);
+              // console.log('BUY ORDER QUANTITY', order_quantity);
               data.quantity += order_quantity;
-              console.log('BUY UPDATED POSITION quantity', data.quantity);
+              // console.log('BUY UPDATED POSITION quantity', data.quantity);
               data.total += order.total;
-              console.log('BUY UPDATED POSITION total', data.total);
+              // console.log('BUY UPDATED POSITION total', data.total);
               data.save();
               res.json(order);
               
             }
             else if(data != null && order.type == 'sell' || order.type == 'sell short'){
               let order_total = order.total;
-              console.log('SELL ORDER TOTAL', order_total);
+              // console.log('SELL ORDER TOTAL', order_total);
               let order_quantity = order.quantity;
-              console.log('SELL ORDER QUANTITY', order_quantity);
+              // console.log('SELL ORDER QUANTITY', order_quantity);
               data.quantity -= order_quantity;
-              console.log('SELL UPDATED POSITION quantity', data.quantity);
+              // console.log('SELL UPDATED POSITION quantity', data.quantity);
               data.total += order.total;
-              console.log('SELL UPDATED POSITION total', data.total);
+              // console.log('SELL UPDATED POSITION total', data.total);
               data.save();
               res.json(order);
               
@@ -46,7 +46,7 @@ module.exports = {
             else if(data == null) {
               model.Position.create({symbol: order.symbol, quantity: order.quantity, total: order.total})
                 .then(result => {
-                  console.log('NEW POSITION', result);
+                  // console.log('NEW POSITION', result);
                   res.json(order);
                 })
                 .catch(err => res.json(err));
@@ -91,10 +91,10 @@ module.exports = {
   },
 
   currentBalance: (req, res) => {
-    console.log('inside currentBalance function');
+    // console.log('inside currentBalance function');
     model.Position.aggregate({$group: {_id: null, total: {$sum: $total}}})
       .then(data => {
-        console.log('POSITION TOTALS', data);
+        // console.log('POSITION TOTALS', data);
         res.json(data);
       })
       .catch(err => res.json(err));

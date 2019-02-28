@@ -16,17 +16,9 @@ const PositionSchema = new mongoose.Schema({
   total: {type: Number}
 });
 
-// const AccountSchema = new mongoose.Schema({
-//   initial: {type: Number, default: 25000},
-//   current: {type: Number},
-//   return: {type: Number}
-// })
-
-// const Account = mongoose.model('Account', AccountSchema);
 const Order= mongoose.model('Order', OrderSchema);
 const Position = mongoose.model('Position', PositionSchema);
 module.exports = {
   Order: Order,
-  // Account: Account,
   Position: Position,
 }

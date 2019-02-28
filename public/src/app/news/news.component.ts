@@ -44,7 +44,7 @@ export class NewsComponent implements OnInit {
       this.stock.quote.marketCap = Math.round(this.stock.quote.marketCap * 100) / 100;
       this.textInput = "";
 
-      console.log('WHOLE OBJECT', data);
+      // console.log('WHOLE OBJECT', data);
       for (let i of this.graph.data){
         for (let x of this.stock['chart']){
           let y_axis = parseInt(x['open']);
@@ -63,6 +63,6 @@ export class NewsComponent implements OnInit {
       
       layout: {width: 450, height: 350, title: 'Historical Price Chart'}
     };
-    console.log('GOT GRAPH', this.graph);
+    // console.log('GOT GRAPH', this.graph);
   }
 }
