@@ -1,4 +1,5 @@
 This repo is mainly for practicing Git commands for better team collaboration. Good resource: https://kbroman.org/github_tutorial/pages/fork.html
+
 Here are some notes for the project
 1. Goals: 
   - To create a mini stock simulator app that allow us to execute trades using real time data with Mongodb, Express, Nodejs and Angular technologies
