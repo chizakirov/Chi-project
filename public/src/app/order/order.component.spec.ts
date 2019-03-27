@@ -6,6 +6,7 @@ describe('OrderComponent', () => {
   let component: OrderComponent;
   let fixture: ComponentFixture<OrderComponent>;
 
+  // COMMENT: why are there two beforeEach? Again we talked about how this is auto-generated. I will look into why maybe?
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ OrderComponent ]

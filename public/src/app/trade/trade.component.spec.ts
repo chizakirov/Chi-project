@@ -6,6 +6,7 @@ describe('TradeComponent', () => {
   let component: TradeComponent;
   let fixture: ComponentFixture<TradeComponent>;
 
+  //Comment: you have an async but not await. What are we awaiting?
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ TradeComponent ]

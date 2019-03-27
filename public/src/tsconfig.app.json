@@ -1,4 +1,5 @@
 {
+  // COMMENT: Why is this file in assets? It's usually at root
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "outDir": "../out-tsc/app",

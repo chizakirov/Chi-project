@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+// I would move anything where the port can be dynamic to a config
 mongoose.connect('mongodb://localhost:27017/stock_simulator', {useNewUrlParser: true });
 
 const OrderSchema = new mongoose.Schema({

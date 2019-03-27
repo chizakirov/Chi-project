@@ -2,6 +2,8 @@ const controller = require("./controller.js");
 const path = require("path");
 
 module.exports = function(app){
+  // COMMENT: Add a session check. You can do this with express middleware. Or just add a comment that you plan to do this.
+  // TODO: implement
   app
     .get('/api/stock/:symbol', controller.getQuote)
     .get('/api/position/:symbol', controller.getPosition)

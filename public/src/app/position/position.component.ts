@@ -28,6 +28,7 @@ export class PositionComponent implements OnInit {
   allPositions(){
     this._stockservice.allPositions()
       .subscribe(data => {
+        // COMMENT: We need more comments here. There's a lot of math logic that I could either read in one or two comments or read the code (which takes longer). Tell me what math is going on.
         this.positions = data;
         for(let i = 0; i < this.positions.length; i++){
           this.positions[i].total = Math.round(this.positions[i].total* 100) / 100;
