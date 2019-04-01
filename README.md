@@ -36,4 +36,5 @@ Here are some notes for the project
   - Fred: 
     1. created login and registration feature
 
+* This app omits login/registration part, as it will be later incorporated. The main goal was to use APIs to get stock information, place trades, and create stock charts.
 
